@@ -78,7 +78,7 @@ end
 
 function module:WorldStateAlwaysUpFrame_SetPoint()
 	if shouldntSetPoint then return end
-	self:SetPosition('worldState')
+	--self:SetPosition('worldState')
 end
 
 function module:WorldStateCaptureBar_SetPoint()
