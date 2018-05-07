@@ -64,7 +64,7 @@ local function Enable(self)
 		wb.__owner = self
 		wb.ForceUpdate = ForceUpdate
 
-		self:RegisterEvent('UNIT_POWER', Path)
+		self:RegisterEvent('UNIT_POWER_UPDATE', Path)
 		wb:Show()
 		return true
 	end
@@ -73,7 +73,7 @@ end
 local function Disable(self)
 	local wb = self.WarlockBar
 	if(wb) then
-		self:UnregisterEvent('UNIT_POWER', Path)
+		self:UnregisterEvent('UNIT_POWER_UPDATE', Path)
 		wb:Hide()
 	end
 end

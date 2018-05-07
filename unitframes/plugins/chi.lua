@@ -41,7 +41,7 @@ local function Enable(self)
 		ch.ForceUpdate = ForceUpdate
 		ch:Show()
 
-		self:RegisterEvent('UNIT_POWER', Path)
+		self:RegisterEvent('UNIT_POWER_UPDATE', Path)
 
 		return true
 	end
@@ -50,7 +50,7 @@ end
 local function Disable(self)
 	local ch = self.Chi
 	if(ch) then
-		self:UnregisterEvent('UNIT_POWER', Path)
+		self:UnregisterEvent('UNIT_POWER_UPDATE', Path)
 		ch:Hide()
 	end
 end

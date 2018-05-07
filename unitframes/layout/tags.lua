@@ -221,7 +221,7 @@ oUF.Tags.Methods["RaidName40"] = function(unit, realunit)
 	return nameCache[name][2]
 end
 
-oUF.Tags.Events["druidmana2"] = "UNIT_POWER UNIT_MAXPOWER"
+oUF.Tags.Events["druidmana2"] = "UNIT_POWER_UPDATE UNIT_MAXPOWER"
 oUF.Tags.Methods["druidmana2"] = function(unit)
 	if unit ~= "player" then return end
 
