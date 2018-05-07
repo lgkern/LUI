@@ -96,7 +96,7 @@ local cornerAuras = {
 local channelingTicks -- base time between ticks
 do
 	local classChannels = {
-		DRUID = {
+		--[[DRUID = {
 			[GetSpellInfo(740)] = 2, -- Tranquility
 			--[GetSpellInfo(16914)] = 1, -- Hurricane
 		},
@@ -122,7 +122,7 @@ do
 			--[GetSpellInfo(79268)] = 1, -- Soul Harvest
 			[GetSpellInfo(5740)] = 2, -- Rain of Fire
 			--[GetSpellInfo(1949)] = 1, -- Hellfire
-		},
+		},]]
 	}
 
 	channelingTicks = {
@@ -211,7 +211,7 @@ do
 	end)
 
 	local dropdown = CreateFrame("Frame", "LUI_UnitFrame_DropDown", UIParent, "UIDropDownMenuTemplate")
-	UnitPopupFrames[#UnitPopupFrames+1] = "LUI_UnitFrame_DropDown"
+	--UnitPopupFrames[#UnitPopupFrames+1] = "LUI_UnitFrame_DropDown"
 
 	local function getMenuUnit(unit)
 		if unit == "focus" then return "FOCUS" end
