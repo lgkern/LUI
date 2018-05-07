@@ -105,7 +105,7 @@ local UNIT_SPELLCAST_START = function(self, event, unit, spell)
 	if(self.unit ~= unit and self.realUnit ~= unit) then return end
 
 	local castbar = self.Castbar
-	local name, _, text, texture, startTime, endTime, _, castid, interrupt = UnitCastingInfo(unit)
+	local name, text, texture, startTime, endTime, _, castid, interrupt = UnitCastingInfo(unit)
 	if(not name) then
 		castbar:Hide()
 		return
@@ -219,7 +219,7 @@ local UNIT_SPELLCAST_DELAYED = function(self, event, unit, spellname, _, castid)
 	if(self.unit ~= unit and self.realUnit ~= unit) then return end
 
 	local castbar = self.Castbar
-	local name, _, text, texture, startTime, endTime = UnitCastingInfo(unit)
+	local name, text, texture, startTime, endTime = UnitCastingInfo(unit)
 	if(not startTime or not castbar:IsShown()) then return end
 
 	local duration = GetTime() - (startTime / 1000)

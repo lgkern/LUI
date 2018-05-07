@@ -89,7 +89,7 @@ module.RecreateNameCache = function()
 	end
 end
 
-oUF.Tags.Events["GetNameColor"] = "UNIT_HAPPINESS"
+--oUF.Tags.Events["GetNameColor"] = "UNIT_HAPPINESS"
 oUF.Tags.Methods["GetNameColor"] = function(unit)
 	local reaction = UnitReaction(unit, "player")
 	local pClass, pToken = UnitClass(unit)

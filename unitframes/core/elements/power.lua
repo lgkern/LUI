@@ -234,7 +234,7 @@ local Enable = function(self, unit)
 		if(power.frequentUpdates and (unit == 'player' or unit == 'pet')) then
 			self:RegisterEvent('UNIT_POWER_FREQUENT', Path)
 		else
-			self:RegisterEvent('UNIT_POWER', Path)
+			self:RegisterEvent('UNIT_POWER_UPDATE', Path)
 		end
 
 		self:RegisterEvent('UNIT_POWER_BAR_SHOW', Path)
