@@ -149,7 +149,6 @@ end
 local function Visibility(self, event, unit)
 	local element = self.ClassIcons
 	local shouldEnable
-	print(string.format("At least in Visibility, ClassPowerID = %s", tostring(ClassPowerID)))
 
 	if(UnitHasVehicleUI('player')) then
 	 	if(UnitPowerType('vehicle') == SPELL_POWER_ENERGY) then
