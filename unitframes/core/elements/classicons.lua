@@ -149,6 +149,7 @@ end
 local function Visibility(self, event, unit)
 	local element = self.ClassIcons
 	local shouldEnable
+	print(string.format("At least in Visibility, ClassPowerID = %s", tostring(ClassPowerID)))
 
 	if(UnitHasVehicleUI('player')) then
 	 	if(UnitPowerType('vehicle') == SPELL_POWER_ENERGY) then
@@ -220,18 +221,18 @@ do
 	end
 
 	if(PlayerClass == 'MONK') then
-		ClassPowerID = SPELL_POWER_CHI
+		ClassPowerID = SPELL_POWER_CHI or 12
 		ClassPowerType = "CHI"
 		RequireSpec = SPEC_MONK_WINDWALKER
 	elseif(PlayerClass == 'PALADIN') then
-		ClassPowerID = SPELL_POWER_HOLY_POWER
+		ClassPowerID = SPELL_POWER_HOLY_POWER or 9
 		ClassPowerType = "HOLY_POWER"
 		RequireSpec = SPEC_PALADIN_RETRIBUTION
 	elseif(PlayerClass == 'WARLOCK') then
-		ClassPowerID = SPELL_POWER_SOUL_SHARDS
+		ClassPowerID = SPELL_POWER_SOUL_SHARDS or 7
 		ClassPowerType = "SOUL_SHARDS"
 	elseif(PlayerClass == 'ROGUE' or PlayerClass == 'DRUID') then
-		ClassPowerID = SPELL_POWER_COMBO_POINTS
+		ClassPowerID = SPELL_POWER_COMBO_POINTS or 4
 		ClassPowerType = 'COMBO_POINTS'
 
 		if(PlayerClass == 'DRUID') then
@@ -239,7 +240,7 @@ do
 			RequireSpell = 5221 -- Shred
 		end
 	elseif(PlayerClass == 'MAGE') then
-		ClassPowerID = SPELL_POWER_ARCANE_CHARGES
+		ClassPowerID = SPELL_POWER_ARCANE_CHARGES or 16
 		ClassPowerType = 'ARCANE_CHARGES'
 		RequireSpec = SPEC_MAGE_ARCANE
 	end
