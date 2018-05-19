@@ -12,15 +12,15 @@
 ]]
 
 -- External references.
-local addonname, LUI = ...
+local _, LUI = ...
 local module = LUI:Module("Panels", "AceHook-3.0", "AceEvent-3.0")
 local Frames = LUI:Module("Frames")
 local Themes = LUI:Module("Themes")
-local Media = LibStub("LibSharedMedia-3.0")
+local Media_ = LibStub("LibSharedMedia-3.0")
 
-local db, dbd
-local frameBackgrounds = {"LEFT", "RIGHT", "NONE"}
-local frameBackgrounds2 = {"LUI v3", "NONE"}
+local db, dbd_
+local frameBackgrounds_ = {"LEFT", "RIGHT", "NONE"}
+local frameBackgrounds2_ = {"LUI v3", "NONE"}
 local animations = {"AlphaSlide", "None"}
 local directions = {"SOLID", "TOPLEFT", "TOP", "TOPRIGHT", "RIGHT", "BOTTOMRIGHT", "BOTTOM", "BOTTOMLEFT", "LEFT"}
 
@@ -449,17 +449,9 @@ function module:AlphaOut(kind)
 	if db[kind].Animation == "AlphaSlide" then
 		backgrounds[kind].AlphaOut:Show()
 
-		--[[if kind == "Chat" and LUI.db.profile.Chat.SecondChatFrame then
-			backgrounds.Chat2.AlphaOut:Show()
-		end]]
 	else
 		_G[backgrounds[kind].frame]:SetAlpha(0)
 		_G[backgrounds[kind].frame]:Hide()
-
-		--[[if kind == "Chat" and LUI.db.profile.Chat.SecondChatFrame then
-			ChatAlphaAnchor2:SetAlpha(0)
-			ChatAlphaAnchor2:Hide()
-		end]]
 
 		for _, f in pairs(Panels:LoadAdditional(db[kind].Additional)) do
 			_G[f]:SetAlpha(0)
@@ -474,10 +466,6 @@ function module:CreateBackground(kind)
 	local frame
 	if kind == "Chat" then
 		frame = "ChatAlphaAnchor"
-	--[[
-	elseif kind == "Chat2" then
-		frame = "ChatAlphaAnchor2"
-	--]]
 	else
 		frame = db[kind].Anchor
 	end
@@ -565,10 +553,6 @@ function module:ApplyBackground(kind)
 	if kind == "Chat" then
 		frame = ChatAlphaAnchor
 		frame:Raise() -- Fix for Panel being above chat frame
-	--[[
-	elseif kind == "Chat2" then
-		frame = ChatAlphaAnchor2
-	--]]
 	else
 		frame = _G[db[kind].Anchor]
 	end
@@ -600,18 +584,7 @@ function module:SetPanels()
 	ChatAlphaAnchor:SetAlpha(1)
 	ChatAlphaAnchor:Show()
 
-	--[[
-	local ChatAlphaAnchor2 = CreateFrame("Frame", "ChatAlphaAnchor2", UIParent)
-	ChatAlphaAnchor2:SetWidth(30)
-	ChatAlphaAnchor2:SetHeight(30)
-	ChatAlphaAnchor2:SetFrameStrata("BACKGROUND")
-	ChatAlphaAnchor2:SetPoint("TOPLEFT", LUI.db.profile.Chat and LUI.db.profile.Chat.SecondChatAnchor or ChatFrame3, "TOPLEFT", -10, 8)
-	ChatAlphaAnchor2:SetAlpha(1)
-	ChatAlphaAnchor2:Hide()
-	--]]
-
 	self:CreateBackground("Chat")
-	--self:CreateBackground("Chat2")
 	self:CreateBackground("Tps")
 	self:CreateBackground("Dps")
 	self:CreateBackground("Raid")
@@ -638,15 +611,6 @@ module.defaults = {
 			Width = 409,
 			Height = 181
 		},
-		--[[
-		Chat2 = {
-			OffsetX = 0,
-			OffsetY = 0,
-			Direction = "TOPLEFT",
-			Width = 100,
-			Height = 100
-		},
-		--]]
 		Tps = {
 			OffsetX = 0,
 			OffsetY = 0,
@@ -703,7 +667,6 @@ function module:Refresh(...)
 	end
 
 	self:ApplyBackground("Chat")
-	--self:ApplyBackground("Chat2")
 	self:ApplyBackground("Tps")
 	self:ApplyBackground("Dps")
 	self:ApplyBackground("Raid")
@@ -715,7 +678,6 @@ function module:LoadOptions()
 	local UIRL = function() StaticPopup_Show("RELOAD_UI") end
 
 	local CreateOptionsPart = function(tag, order)
-		--local isPrimary = tag ~= "Chat2"
 		local isNotChat = tag ~= "Chat" --not string.find(tag, "Chat")
 
 		local options = self:NewGroup(tag, order, {
