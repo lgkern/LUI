@@ -57,6 +57,8 @@ local function Update(self, event, unit)
 		status = factionGroup
 	end
 
+	print(status)
+
 	if(status) then
 		element:SetTexture([[Interface\TargetingFrame\UI-PVP-]] .. status)
 		element:SetTexCoord(0, 0.65625, 0, 0.65625)
