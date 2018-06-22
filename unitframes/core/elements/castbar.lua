@@ -257,7 +257,7 @@ local UNIT_SPELLCAST_CHANNEL_START = function(self, event, unit, spellname)
 	if(self.unit ~= unit and self.realUnit ~= unit) then return end
 
 	local castbar = self.Castbar
-	local name, _, text, texture, startTime, endTime, isTrade, interrupt = UnitChannelInfo(unit)
+	local name, text, texture, startTime, endTime, isTrade, interrupt  = UnitChannelInfo(unit)
 	if(not name) then
 		return
 	end
