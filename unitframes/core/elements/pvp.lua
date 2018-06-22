@@ -28,7 +28,7 @@ local oUF = ns.oUF
 local function Update(self, event, unit)
 	if(unit ~= self.unit) then return end
 
-	local element = self.PvPIndicator
+	local element = self.PvP
 
 	--[[ Callback: PvPIndicator:PreUpdate(unit)
 	Called before the element has been updated.
@@ -56,8 +56,6 @@ local function Update(self, event, unit)
 
 		status = factionGroup
 	end
-
-	print(status)
 
 	if(status) then
 		element:SetTexture([[Interface\TargetingFrame\UI-PVP-]] .. status)
@@ -88,7 +86,7 @@ local function Path(self, ...)
 	* event - the event triggering the update (string)
 	* ...   - the arguments accompanying the event
 	--]]
-	return (self.PvPIndicator.Override or Update) (self, ...)
+	return (self.PvP.Override or Update) (self, ...)
 end
 
 local function ForceUpdate(element)
@@ -96,7 +94,7 @@ local function ForceUpdate(element)
 end
 
 local function Enable(self)
-	local element = self.PvPIndicator
+	local element = self.PvP
 	if(element) then
 		element.__owner = self
 		element.ForceUpdate = ForceUpdate
@@ -108,7 +106,7 @@ local function Enable(self)
 end
 
 local function Disable(self)
-	local element = self.PvPIndicator
+	local element = self.PvP
 	if(element) then
 		element:Hide()
 
@@ -116,4 +114,4 @@ local function Disable(self)
 	end
 end
 
-oUF:AddElement('PvPIndicator', Path, Enable, Disable)
+oUF:AddElement('PvP', Path, Enable, Disable)
