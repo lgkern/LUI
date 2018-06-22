@@ -105,7 +105,7 @@ local UNIT_SPELLCAST_START = function(self, event, unit, spell)
 	if(self.unit ~= unit and self.realUnit ~= unit) then return end
 
 	local castbar = self.Castbar
-	local name, text, texture, startTime, endTime, _, castid, interrupt = UnitCastingInfo(unit)
+	local name, text, texture, startTime, endTime, _, _, interrupt, castid = UnitCastingInfo(unit)
 	if(not name) then
 		castbar:Hide()
 		return
@@ -151,7 +151,7 @@ local UNIT_SPELLCAST_START = function(self, event, unit, spell)
 	castbar:Show()
 end
 
-local UNIT_SPELLCAST_FAILED = function(self, event, unit, spellname, _, castid)
+local UNIT_SPELLCAST_FAILED = function(self, event, unit, spellname, castid)
 	if(self.unit ~= unit and self.realUnit ~= unit) then return end
 
 	local castbar = self.Castbar
@@ -169,7 +169,7 @@ local UNIT_SPELLCAST_FAILED = function(self, event, unit, spellname, _, castid)
 	end
 end
 
-local UNIT_SPELLCAST_INTERRUPTED = function(self, event, unit, spellname, _, castid)
+local UNIT_SPELLCAST_INTERRUPTED = function(self, event, unit, spellname, castid)
 	if(self.unit ~= unit and self.realUnit ~= unit) then return end
 
 	local castbar = self.Castbar
