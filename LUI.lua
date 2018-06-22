@@ -31,7 +31,7 @@ local LIVE_BUILD = 26365
 local _, CURRENT_BUILD, _, CURRENT_TOC = GetBuildInfo()
 if tonumber(CURRENT_BUILD) > LIVE_BUILD then
 	LUI.PTR = true
-	LUI:Print("Using Code Designed for New Patch")
+	--LUI:Print("Using Code Designed for New Patch")
 end
 local ProfileName = UnitName("player").." - "..GetRealmName()
 

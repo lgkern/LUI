@@ -2831,7 +2831,7 @@ function module:SetEquipmentSets()
 		
 		stat.UNIT_INVENTORY_CHANGED = function(self, unit)
 			local text = "No set equipped."
-			for set = 1,GetNumEquipmentSets() do
+			for set = 1,C_EquipmentSet.GetNumEquipmentSets() do
 				local name, _, setID, isEquipped, _, _, _, numMissing, _ = GetEquipmentSetInfo(set)
 				if isEquipped then
 					text = string.format("%s%s", db.EquipmentSets.Text, name)
