@@ -407,14 +407,14 @@ local CreateBackground = function()
 	f.t:SetPoint("BOTTOMLEFT", f, "TOPLEFT", -padding, padding)
 	f.t:SetPoint("BOTTOMRIGHT", f, "TOPRIGHT", padding, padding)
 	f.t:SetTexture(fdir.."panelborder.tga")
-	f.t:SetRotation(0)
+	--f.t:SetRotation(0)
 
 	f.b = f:CreateTexture(nil, "BACKGROUND")
 	f.b:SetHeight(bordersize)
 	f.b:SetPoint("TOPLEFT", f, "BOTTOMLEFT", -padding, -padding)
 	f.b:SetPoint("TOPRIGHT", f, "BOTTOMRIGHT", padding, -padding)
 	f.b:SetTexture(fdir.."panelborder.tga")
-	f.b:SetRotation(math.pi)
+	--f.b:SetRotation(math.pi)
 
 	f.Set = Set
 
